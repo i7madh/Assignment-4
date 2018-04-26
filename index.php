@@ -32,24 +32,28 @@
   if (isset($_GET['sortby'])) {
     // Capture that in a variable by that name
     $sortby = $_GET['sortby'];
-    // Now to change the SQL query based on the sorting the user chose (price high to low, low to high, alphabetical and latest first)
+  // price low
     if ($sortby == 'lowprice') {
       $sql =("SELECT * FROM books ORDER BY price asc");
         $query = $db->query($sql);
-
+    //price high 
     }
     elseif ($sortby == 'highprice') {
       $sql =("SELECT * FROM books ORDER BY price DESC");
         $query = $db->query($sql);
     }
+    // sort by name
     elseif ($sortby == 'name') {
       $sql =("SELECT * FROM books ORDER BY author asc");
         $query = $db->query($sql);
     }
+    
+    // sort by rate sql
     elseif ($sortby == 'rate') {
       $sql =("SELECT * FROM books ORDER BY rate DESC");
         $query = $db->query($sql);
     }
+    //sort by pdate sql
     elseif ($sortby == 'pdate') {
       $sql =("SELECT * FROM books ORDER BY pdate DESC");
         $query = $db->query($sql);
